@@ -19,7 +19,11 @@ function getSelectors (contract) {
 
 // get function selector from function signature
 function getSelector (func) {
+  // console.log('func:', func)
   const abiInterface = new ethers.utils.Interface([func])
+  // console.log('abiInterface:', abiInterface)
+  // const fragment = ether.utils.Fragment.from(func)
+  // console.log('fragment:', fragment)
   return abiInterface.getSighash(ethers.utils.Fragment.from(func))
 }
 
@@ -76,6 +80,7 @@ function findAddressPositionInFacets (facetAddress, facets) {
 
 exports.getSelectors = getSelectors
 exports.getSelector = getSelector
+exports.get = get
 exports.FacetCutAction = FacetCutAction
 exports.remove = remove
 exports.removeSelectors = removeSelectors
